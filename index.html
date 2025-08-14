@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="./styles/addtaskForm.css" />
+    <link rel="stylesheet" href="./styles/addtasksForm.css" />
+    <link rel="stylesheet" href="./styles/taskslistDisplay.css" />
   </head>
   <body>
     <main class="container">
@@ -21,9 +22,14 @@
           <button id="add-button" type="submit">Add</button>
         </form>
       </section>
+      <!-- Add Tasks List-->
+      <section class="list-section">
+        <ul id="task-list" class="task-list"></ul>
+      </section>
     </main>
 
     <!-- script link -->
     <script src="./scripts/addtasksForm.js" defer></script>
+    <script src="./scripts/taskslistDisplay.js" defer></script>
   </body>
 </html>

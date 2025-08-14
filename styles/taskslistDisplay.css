@@ -1,0 +1,105 @@
+
+.list-section {
+  margin-top: 12px;
+  border: 1px solid #e8e8ef;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e8e8ef;
+}
+.task:last-child {
+  border-bottom: 0;
+}
+
+.task-title {
+  display: block;
+  font-weight: 600;
+}
+.task-desc {
+  margin-top: 4px;
+  color: #555;
+  font-size: 14px;
+}
+
+.empty {
+  padding: 12px 14px;
+  color: #777;
+  font-style: italic;
+}
+
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Each task item */
+
+.task {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+}
+
+/* Task title */
+
+.task-text {
+  font-weight: bold;
+}
+
+/* Task description */
+
+.task-desc {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Edit and Delete Buttons */
+
+.buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.delete-button {
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: red;
+}
+
+.edit-button{
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: white;
+}
+
+/* Completed tasks */
+
+.task.done .task-text,
+.task.done .task-desc {
+  text-decoration: line-through;
+  color: #888;
+}

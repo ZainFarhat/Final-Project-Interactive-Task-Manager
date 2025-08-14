@@ -1,3 +1,4 @@
+
 // Get tasks from Local Storage
 var taskLists = localStorage.getItem("TASKS_ARRAY") || "[]";
 var tasks = JSON.parse(taskLists);
@@ -30,7 +31,6 @@ form.addEventListener("submit", function (e) {
   // Check if title and description are empty
   if (!inputValue) {
     input.classList.add("field-error");
-    titleError.textContent = "Title cannot be empty";
     titleError.innerText = "Title cannot be empty";
     titleError.classList.remove("hide");
     hasError = true;
@@ -38,7 +38,6 @@ form.addEventListener("submit", function (e) {
 
   if (!descriptionValue) {
     inputDescription.classList.add("field-error");
-    descError.textContent = "Description cannot be empty";
     descError.innerText = "Description cannot be empty";
     descError.classList.remove("hide");
     hasError = true;
@@ -52,6 +51,14 @@ form.addEventListener("submit", function (e) {
   inputDescription.value = "";
 });
 
+function escapeHtml(text) {
+  var div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+
+
 // === Actions ===
 function addTask(text, description) {
   var task = {
@@ -62,4 +69,7 @@ function addTask(text, description) {
   };
   tasks.push(task);
   saveTasks();
+  getTasks();
 }
+
+getTasks();

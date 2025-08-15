@@ -1,4 +1,3 @@
-
 .list-section {
   margin-top: 12px;
   border: 1px solid #e8e8ef;
@@ -36,8 +35,6 @@
   font-style: italic;
 }
 
-
-
 ul {
   list-style: none;
   padding: 0;
@@ -47,19 +44,17 @@ ul {
 /* Each task item */
 
 .task {
-  display: flex; 
-  justify-content: space-between; 
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 8px;
   border-bottom: 1px solid #ccc;
 }
 
-
-
 .task-main {
   display: flex;
   align-items: center;
-  gap: 8px; 
+  gap: 8px;
 }
 
 /* Task title */
@@ -91,12 +86,12 @@ ul {
   color: #fff;
 }
 
-.edit-button{
+.edit-button {
   padding: 4px 8px;
   font-size: 14px;
   cursor: pointer;
   color: #fff;
-  background-color: #2196F3;
+  background-color: #2196f3;
   border: 1px solid #e8e8ef;
 }
 
@@ -108,25 +103,58 @@ ul {
   color: #888;
 }
 
-
-.edit-title, .edit-desc {
+.edit-title,
+.edit-desc {
   width: 100%;
   padding: 8px 10px;
   border: 1px solid #e8e8ef;
   border-radius: 8px;
   font: inherit;
   margin-top: 4px;
-
 }
 
 .save-button {
   padding: 6px 10px;
   border: 1px solid #e8e8ef;
   border-radius: 8px;
-  background:  #388E3C;
+  background: #388e3c;
   color: #fff;
   cursor: pointer;
-
 }
 
- 
+/* Filters buttons for: "All", "Completed", "Pending". */
+
+.filters {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.filter-button {
+  padding: 8px 12px;
+  border: 1px solid #e8e8ef;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.button-all {
+  background: #1a73e8;
+  border-color: #1a73e8;
+} 
+.button-all:hover { background: #1664cc; }
+
+.button-pending {
+  background: #f39c12;
+  border-color: #f39c12;
+} 
+.button-pending:hover { background: #d98a0f; }
+
+.button-completed {
+  background: #2e7d32;
+  border-color: #2e7d32;
+} 
+.button-completed:hover { background: #256628; }
+
+

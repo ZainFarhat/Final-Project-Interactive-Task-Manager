@@ -4,14 +4,25 @@ var list = document.getElementById("task-list");
 function getTasks() {
   var html = "";
 
-  if (tasks.length === 0) {
-    html = '<li class="empty">No tasks yet</li>';
-    list.innerHTML = html;
-    return;
-  }
+  var filteredTask = tasks.filter(function (t) {
+    // If the filter is "pending", include only tasks where t.done is false .
+    if (currentFilter === "pending") return !t.done;
+    // If the filter is "completed", include only tasks where t.done is is true .
+    if (currentFilter === "completed") return t.done;
+    return true; // If the filter is "all",
+  });
 
-  for (var i = 0; i < tasks.length; i++) {
-    var t = tasks[i];
+  if (filteredTask.length === 0) {
+  var msg = "No tasks yet";
+  if (currentFilter === "pending") msg = "No pending tasks";
+  if (currentFilter === "completed") msg = "No completed tasks";
+  list.innerHTML = '<li class="empty">' + msg + '</li>';
+  return;
+}
+
+
+  for (var i = 0; i < filteredTask.length; i++) {
+    var t = filteredTask[i];
     html +=
       '<li class="task ' +
       (t.done ? "done" : "") +
@@ -44,7 +55,33 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
-getTasks();
+// Keep track of which filter is selected right now ("all", "pending", or "completed")
+var currentFilter = "all"; 
+var buttonAll = document.querySelector(".button-all");
+var buttonPending = document.querySelector(".button-pending");
+var buttonCompleted = document.querySelector(".button-completed");
+var allFilterButtons = document.querySelectorAll(".filter-button");
+
+
+  function setFilter(name) {
+  currentFilter = name;
+
+  allFilterButtons.forEach(function (b) { b.classList.remove("active"); });
+//   Add the "active" highlight to the button that matches the chosen filter
+  if (name === "all") buttonAll.classList.add("active");
+  if (name === "pending") buttonPending.classList.add("active");
+  if (name === "completed") buttonCompleted.classList.add("active");
+
+  getTasks();
+}
+
+
+setFilter("all");
+
+// Make the buttons work: when clicked, change the filter
+buttonAll.addEventListener("click", function () { setFilter("all"); });
+buttonPending.addEventListener("click", function () { setFilter("pending"); });
+buttonCompleted.addEventListener("click", function () { setFilter("completed"); });
 
 // Delete Function: it removes task depending on its Id
 
@@ -73,6 +110,8 @@ list.addEventListener("click", function (e) {
 // Edit Function : turns the task text into an input field
 
 function Edit(li) {
+ 
+  
   var main = li.querySelector(".task-main");
   var titleSpan = main.querySelector(".task-text");
   var descP = main.querySelector(".task-desc");
@@ -145,4 +184,28 @@ list.addEventListener("click", function (e) {
     saveEdit(li, id);
     return;
   }
+});
+
+
+// handle status changes 
+list.addEventListener("change", function (e) {
+
+  if (!e.target.classList.contains("toggle")) return;
+
+  var li = e.target.closest("li.task");
+  if (!li) return;
+
+  var id = Number(li.getAttribute("data-id"));
+  var checked = e.target.checked; // true = done, false = pending
+
+  // update task status
+  for (var i = 0; i < tasks.length; i++) {
+    if (tasks[i].id === id) {
+      tasks[i].done = checked;
+      break;
+    }
+  }
+
+ saveTasks(); // update localStorage
+  getTasks(); // updated tasks will be displayed
 });

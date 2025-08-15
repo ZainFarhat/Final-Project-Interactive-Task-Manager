@@ -5,41 +5,14 @@
   background: #fff;
 }
 
-.task-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.task {
-  padding: 12px 14px;
-  border-bottom: 1px solid #e8e8ef;
-}
-.task:last-child {
-  border-bottom: 0;
-}
-
-.task-title {
-  display: block;
-  font-weight: 600;
-}
-.task-desc {
-  margin-top: 4px;
-  color: #555;
-  font-size: 14px;
-}
-
+/* empty message when no tasks */
 .empty {
   padding: 12px 14px;
   color: #777;
   font-style: italic;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+.task-list { list-style: none; padding: 0; margin: 0; }
 
 /* Each task item */
 
@@ -48,8 +21,9 @@ ul {
   justify-content: space-between;
   align-items: center;
   padding: 8px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e8e8ef;
 }
+.task:last-child { border-bottom: 0; }
 
 .task-main {
   display: flex;
@@ -95,6 +69,9 @@ ul {
   border: 1px solid #e8e8ef;
 }
 
+.edit-button:hover { background-color: #1976d2; }  
+.delete-button:hover { background-color: #c62828; }
+
 /* Completed tasks */
 
 .task.done .task-text,
@@ -102,6 +79,8 @@ ul {
   text-decoration: line-through;
   color: #888;
 }
+
+/* Edit Mode (inputs shown after clicking Edit) */
 
 .edit-title,
 .edit-desc {
@@ -122,7 +101,7 @@ ul {
   cursor: pointer;
 }
 
-/* Filters buttons for: "All", "Completed", "Pending". */
+/* Filters*/
 
 .filters {
   display: flex;
@@ -138,6 +117,10 @@ ul {
   cursor: pointer;
   font-size: 14px;
 }
+
+.filter-button.active { box-shadow: 0 0 0 2px #00000010; }
+
+/* Filter Button Colors */
 
 .button-all {
   background: #1a73e8;

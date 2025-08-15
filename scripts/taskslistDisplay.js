@@ -39,6 +39,7 @@ function getTasks() {
       (t.description
         ? '<p class="task-desc">' + escapeHtml(t.description) + "</p>"
         : "") +
+        
       "  </div>" +
       '  <div class="buttons">' +
       '    <button class="edit-button" type="button">Edit</button>' +
@@ -76,7 +77,7 @@ var allFilterButtons = document.querySelectorAll(".filter-button");
 }
 
 
-setFilter("all");
+setFilter("all"); 
 
 // Make the buttons work: when clicked, change the filter
 buttonAll.addEventListener("click", function () { setFilter("all"); });

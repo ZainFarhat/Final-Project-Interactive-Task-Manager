@@ -72,4 +72,4 @@ function addTask(text, description) {
   getTasks();
 }
 
-getTasks();
+

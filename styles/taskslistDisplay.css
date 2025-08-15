@@ -56,7 +56,7 @@ ul {
 
 
 
-.left {
+.task-main {
   display: flex;
   align-items: center;
   gap: 8px; 
@@ -87,13 +87,17 @@ ul {
   font-size: 14px;
   cursor: pointer;
   background-color: red;
+  border: 1px solid #e8e8ef;
+  color: #fff;
 }
 
 .edit-button{
   padding: 4px 8px;
   font-size: 14px;
   cursor: pointer;
-  background-color: white;
+  color: #fff;
+  background-color: #2196F3;
+  border: 1px solid #e8e8ef;
 }
 
 /* Completed tasks */
@@ -103,3 +107,26 @@ ul {
   text-decoration: line-through;
   color: #888;
 }
+
+
+.edit-title, .edit-desc {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #e8e8ef;
+  border-radius: 8px;
+  font: inherit;
+  margin-top: 4px;
+
+}
+
+.save-button {
+  padding: 6px 10px;
+  border: 1px solid #e8e8ef;
+  border-radius: 8px;
+  background:  #388E3C;
+  color: #fff;
+  cursor: pointer;
+
+}
+
+ 
